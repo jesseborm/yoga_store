@@ -11,21 +11,20 @@
   { reference_number: 1238, name: "Light On Yoga", price: 10 }
 ]
 
-# -----------------
-#  helper methods
-# -----------------
+# helper methods
 def print_divider
   puts "-" * 40
   puts "\n"
 end
 
 def delay(num)
-  (1..num).to_a.each { print "."; sleep 0.5 }
+  (1..num).to_a.each { print "."; sleep 0.25 }
   print "\n"
 end
 
 
 
+#
 def welcome
   puts "Welcome to our beautiful store. Take your time to look around."
 end
@@ -50,13 +49,16 @@ end
 
 
 
+
+
 def valid_prod_choice(customer_choice)
   @products.each do |product|
     if product[:reference_number] == customer_choice
       return product
     end
   end
-  puts "not the right product."
+  puts " - This not the right product - "
+  continue_shopping
 end
 
 def add_to_shopping_cart(product)
@@ -91,13 +93,13 @@ def continue_shopping
   end
 end
 
+
 def check_out
-
-
   puts "Thanks for buying all that wonderfull stuff. See you again soon."
 end
 
 
+# running program
 welcome
 loop do
   show_products
